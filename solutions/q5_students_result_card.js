@@ -7,4 +7,49 @@
 //        You can assume their scores on their respective subjects.
 
 
-// Write your code here
+let students = [];
+let studentName;
+let studentSubject;
+let studentGrammerMarks;
+let studentAccountsMarks;
+let studentPhysicsMarks;
+let studentMarks;
+let studentPercentage;
+for(let i = 1; i <= 100; i = i + 1)
+{
+    studentAccountsMarks = 0;
+    studentGrammerMarks = 0;
+    studentPhysicsMarks = 0;
+    studentSubject = 'Grammer';
+    studentName = 'name' + i;
+    if(i <= 50)
+    {
+        studentSubject = studentSubject + ',Physics';
+    }
+    else
+    {
+        studentSubject = studentSubject + ',Accounts';
+    }
+    if(studentSubject.includes('Accounts'))
+    {
+        studentGrammerMarks = Math.floor(Math.random() * 100) + 1;
+        studentAccountsMarks = Math.floor(Math.random() * 100) + 1;
+        studentMarks = studentGrammerMarks + ', ' + studentAccountsMarks;
+        studentPercentage = (studentAccountsMarks + studentGrammerMarks) / 2;
+    }
+    else
+    {
+        studentGrammerMarks = Math.floor(Math.random() * 100) + 1;
+        studentPhysicsMarks = Math.floor(Math.random() * 100) + 1;
+        studentMarks = studentGrammerMarks + ', ' + studentPhysicsMarks;
+        studentPercentage = (studentPhysicsMarks + studentGrammerMarks) / 2;
+    }
+    let reportObj = {
+        name: studentName,
+        subject: studentSubject,
+        marks: studentMarks,
+        percentage: studentPercentage
+    };
+    students.push(reportObj);
+}
+return students;
